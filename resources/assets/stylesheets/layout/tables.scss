@@ -1,5 +1,4 @@
-.table
-{
+.table {
     width: 100%;
     border-collapse: collapse;
     background-color: $color-background-lightest;
@@ -15,6 +14,10 @@
                 border-top-right-radius: $border-radius;
             }
         }
+    }
+
+    tr td:first-child a {
+        color: $color-labels;
     }
 
     th, td
@@ -96,7 +99,7 @@
 
     tr:hover td
     {
-        background-color: $color-highlight-lightest;
+        background-color: $color-background-darker;
     }
 
     td a:not(.button),

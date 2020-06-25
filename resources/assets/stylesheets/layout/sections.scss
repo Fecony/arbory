@@ -20,10 +20,50 @@ section
     > .body
     {
         background-color: $color-background-lighter;
-        padding: steps(2) steps(3);
+        padding: steps(2)+2 steps(3);
 
         &:empty {
             padding: 0;
+        }
+    }
+
+    > .breadcrumbs {
+        padding-top: 20px;
+        display: inline-block;
+        padding-bottom: 0;
+
+        &:empty {
+            padding: 0;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+
+        .count-text {
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 500;
+            margin-bottom: 11px;
+            color: $color-background-inverted-darkest;
+        }
+
+        .notice-text {
+            line-height: 24px;
+            color: $color-background-inverted-darkest;
+        }
+    }
+
+    &.actions {
+        background-color: $color-background-lighter;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 0 steps(3);
+
+        .mt-icon {
+            font-size: 16px;
         }
     }
 

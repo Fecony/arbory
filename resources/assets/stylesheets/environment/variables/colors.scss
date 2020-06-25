@@ -41,6 +41,7 @@ $color-border-darker:           #a6a6a6;
 $color-border-dark:             #c5c5c5;
 $color-border-normal:           #E2E5ED;
 $color-border-light:            #e6e6e6;
+$color-border-lighter:          #CED1D8;
 
 $color-border-inverted-normal:  #282828;
 $color-border-inverted-lighter: #3c3c3c;
@@ -59,6 +60,10 @@ $color-highlight-normal: 	#19a55c;
 $color-highlight-lighter: 	#EEF2FC;
 $color-highlight-lightest: 	$color-background-lighter;
 
+
+// action button colors
+$color-text-button-action:  #03A65A;
+$color-button-action:       #E5F4EF;
 
 // error color:
 $color-alert: #ee462a;

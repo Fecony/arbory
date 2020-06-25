@@ -22,6 +22,11 @@ class SearchField implements Renderable
     protected $name;
 
     /**
+     * @var string
+     */
+    protected $placeholder;
+
+    /**
      * SearchField constructor.
      * @param $action
      */
@@ -50,6 +55,13 @@ class SearchField implements Renderable
         return $this;
     }
 
+    public function setPlaceholder($placeholder)
+    {
+        $this->placeholder = $placeholder;
+
+        return $this;
+    }
+
     /**
      * @param $content
      * @return Element
@@ -70,7 +82,10 @@ class SearchField implements Renderable
             ->setName($this->name)
             ->setType('search')
             ->addClass('text')
-            ->addAttributes(['autofocus' => 'autofocus'])
+            ->addAttributes([
+                'autofocus' => 'autofocus',
+                'placeholder' => $this->placeholder
+            ])
             ->setValue(request()->get($this->name));
 
         $submitButton = Html::button(Html::i('search')->addClass('mt-icon'))

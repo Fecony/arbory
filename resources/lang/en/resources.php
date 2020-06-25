@@ -4,6 +4,7 @@ return [
     'all_resources' => 'All resources',
     'create_new' => 'Create new resource',
     'nothing_found' => 'Nothing Found',
+    'import' => 'Import',
     'export' => 'Export',
     'save_and_return' => 'Save and Return',
     'save' => 'Save',

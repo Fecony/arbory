@@ -116,6 +116,29 @@ input[type="submit"]
         line-height: 1;
     }
 
+    &.action {
+        color: $color-text-button-action;
+        background: $color-button-action;
+        border-radius: 4px;
+        padding: 8px 16px 8px 14px;
+
+        &:hover,
+        &:focus,
+        &:active
+        {
+            background: darken($color-button-action, 10%);
+            text-decoration: none;
+        }
+
+        &:last-child {
+            margin-left: 16px;
+        }
+
+        i {
+            padding-right: 8px;
+        }
+    }
+
 }
 
 

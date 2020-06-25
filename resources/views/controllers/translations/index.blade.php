@@ -1,16 +1,34 @@
 @extends('arbory::layout.main')
 
 @section('content.header')
-    {!! $header !!}
+    <header>
+        <h2 class="heading">@lang('arbory::translations.all_translations')</h2>
+        {!! $searchField !!}
+    </header>
 @stop
 
 @section('content')
+
+    <section class="actions">
+        <div class="breadcrumbs">
+            {!! $breadcrumbs !!}
+
+            <p class="count-text">
+                @lang('arbory::translations.translations_count', [ 'count' => $translationsCount ])
+            </p>
+
+            <p class="notice-text">
+                @lang('arbory::translations.translations_notice')
+            </p>
+        </div>
+
+        <div class="button-actions">
+            {!! $importButton !!}
+            {!! $exportButton !!}
+        </div>
+    </section>
+
     <section>
-
-        <header>
-            <h1>@lang('arbory::translations.all_translations')</h1>
-        </header>
-
         <div class="body">
             <table class="table">
                 <thead>
@@ -18,7 +36,7 @@
                     <th>Group</th>
                     <th>Key</th>
                     @foreach($languages as $language)
-                        <th>Text {{$language->locale}}</th>
+                        <th>{{$language->name}}</th>
                     @endforeach
                 </tr>
                 </thead>

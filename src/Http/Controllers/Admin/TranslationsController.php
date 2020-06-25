@@ -112,11 +112,15 @@ class TranslationsController extends Controller
         return view(
             'arbory::controllers.translations.index',
             [
-                'header' => Html::header([$this->getIndexBreadcrumbs(), (new SearchField(''))->render()]),
+                'breadcrumbs' => $this->getIndexBreadcrumbs(),
+                'searchField' => (new SearchField(''))->setPlaceholder('Type here to search...')->render(),
                 'languages' => $languages,
+                'exportButton' => $this->getExportButton(),
+                'importButton' => $this->getImportButton(),
                 'translations' => $paginatedItems,
                 'paginator' => $paginatedItems,
                 'search' => $request->get('search'),
+                'translationsCount' => $paginatedItems->total(),
                 'highlight' => function ($text) use ($searchString) {
                     $format = '<span style="background-color: lime; font-weight:bold">%s</span>';
                     $resultHtml = sprintf($format, htmlentities($searchString));
@@ -287,5 +291,20 @@ class TranslationsController extends Controller
     private function getContext()
     {
         return ['page' => $this->request->get('page'), 'search' => $this->request->get('search')];
+    }
+
+    private function getExportButton()
+    {
+        return Html::button([
+            Html::i('unarchive')->addClass('mt-icon'),
+            trans('arbory::resources.export')
+        ])->addClass('button action');
+    }
+
+    private function getImportButton()
+    {
+        return Html::button([Html::i('archive')
+            ->addClass('mt-icon'), trans('arbory::resources.import')
+        ])->addClass('button action');
     }
 }
